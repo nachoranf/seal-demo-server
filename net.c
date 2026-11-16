@@ -11,11 +11,14 @@ int connect_once(const char *host, int port) {
 }
 
 int connect_with_retry(const char *host, int port) {
-    int fd = connect_once(host, port);
-    if (fd < 0) {
+    for (;;) {
+        int fd = connect_once(host, port);
+        if (fd >= 0) {
+            return fd;
+        }
         log_message(LOG_WARN, "connection refused");
+        usleep(200 * 1000);
     }
-    return fd;
 }
 
 long send_all(int fd, const char *data, size_t len) {
