@@ -5,7 +5,7 @@ that [SEAL](https://github.com/nachoranf/SEAL) has something real to check a
 pull request against: a ticket in Jira, a branch named after it, and the graph
 of this repository built on every push to `main`.
 
-Nine files, two hundred lines. Nothing here is meant to run in production.
+Eleven files, five hundred lines. Nothing here is meant to run in production.
 
 | File | What it does |
 |---|---|
@@ -14,3 +14,4 @@ Nine files, two hundred lines. Nothing here is meant to run in production.
 | `config.c` | Parses host and port, reads the log level |
 | `log.c` | Levels and one `log_message` |
 | `buffer.c` | A bounded buffer with `append` |
+| `protocol.c` | A line protocol: sessions, a key-value store, and a dump to disk |
